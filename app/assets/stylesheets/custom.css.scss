@@ -19,6 +19,17 @@ $navbar-default-bg: #073B15;
 
 /* Navbar */
 
+.navbar-default .navbar-nav > li > a:hover  {
+  color: #fff;
+  text-decoration: none;
+}
+
+ 
+.navbar-default .navbar-nav > .active > a:hover 
+{
+  color: #fff;
+  text-decoration: none;
+}
 
 /* For Jumbotron */
 
