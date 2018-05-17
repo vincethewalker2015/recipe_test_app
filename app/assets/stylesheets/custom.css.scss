@@ -68,7 +68,34 @@ $navbar-default-bg: #073B15;
 
 /* Footer Section */
 
-.footer {
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
   color: #073B15;
-  margin-top: 150px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+footer a {
+  color: #073B15;
+}
+
+footer a:hover {
+  color: #073B15;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
 }
