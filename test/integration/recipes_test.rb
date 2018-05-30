@@ -9,7 +9,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
     @recipe2.save
   end
   
-  test "Should get recipes index" do
+  test "Should get recipes index" do  # Tests for Index page, Routes and Controller action
     get recipes_url
     assert_response :success
   end
@@ -18,20 +18,22 @@ class RecipesTest < ActionDispatch::IntegrationTest
     get recipes_path
     assert_template 'recipes/index'
     #assert_match @recipe.name, response.body - No longer valid as we are testing for links as well!!
-    assert_select "a[href=?]", recipes_path(@recipe), text: @recipe.name
+    assert_select "a[href=?]", recipe_path(@recipe), text: @recipe.name
     #assert_match @recipe2.name, response.body
-    assert_select "a[href=?]", recipes_path(@recipe2), text: @recipe2.name
+    assert_select "a[href=?]", recipe_path(@recipe2), text: @recipe2.name
   end
   
-  test "Should get to recipes show" do
+  test "Should get to recipes show" do # tests for the show page, Routes and controller action
     get recipe_path(@recipe)
     assert_template 'recipes/show'
     assert_match @recipe.name, response.body
     assert_match @recipe.description, response.body
     assert_match @chef.chefname, response.body
+    assert_select "a[href=?]", edit_recipe_path(@recipe), text: "Edit This Recipe"
+    assert_select "a[href=?]", recipe_path(@recipe), method: :delete, text: "Delete This Recipe"
   end
   
-  test "Create a new valid recipe" do
+  test "Create a new valid recipe" do  # 34, 47 test for New recipe
     get new_recipe_path
     assert_template "recipes/new"
     name_of_recipe = "Chicken saute"

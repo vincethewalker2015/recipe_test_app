@@ -55,15 +55,32 @@ $navbar-default-bg: #073B15;
   font-weight: bold;
 }
 
-.hm_btn {
+/* Buttons */
+.nice_green {
   background-color : #073B15;
   border-color: #073B15;
 }
 
-.hm_btn:hover {
+
+.nice_green:hover {
   background-color: #ADBB26;
   border-color: #ADBB26;
   text-decoration: none;
+}
+
+/* On Show Page */
+
+.recipe-actions {
+  padding-top: 5px;
+  a {
+    color: #fff !important;
+  }
+}
+
+
+
+.white_font {
+  color: white !important;
 }
 
 /* Footer Section */
