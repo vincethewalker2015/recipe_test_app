@@ -1,36 +1,5 @@
 <%= render "shared/page_title", title: "create a new recipe" %>
 
-<%= render "recipes/error" %>
 
- <div class="row">
-   <div class="col-md-12">
-    <%= form_for(@recipe, :html => {class: "form-horizontal", role: "form"}) do |f| %> <!-- This is how you add bootstrap class in ruby code -->
-     <div class="form-group">
-       <div class="control-label col-md-2">
-         <%= f.label :name %>
-       </div>
-     <div class="col-md-8">
-        <%= f.text_field :name, class: "form-control", placeholder: "Name of recipe", autofocus: true %>
-      </div>
-     </div>
-     
-     <div class="form-group">
-       <div class="control-label col-md-2">
-         <%= f.label :description %>
-       </div>
-     <div class="col-md-8">
-        <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Enter recipe details here.." %>
-      </div>
-     </div>
-     <div class="form-group">
-       <div class="col-md-offset-2 col-md-10 ">
-         <%= f.submit class: "btn btn-primary btn-lg nice_green" %>
-         <!--<%= link_to "All Recipes", recipes_path, class: "btn btn-primary btn-lg nice_green" %> -->
-       </div>
-     </div>
-    <% end %>
-    <div class="col-md-4 col-md-offset-4">
-      <%= link_to "Cancel reguest and return to recipes listing", recipes_path, class: "btn btn-sm btn-primary nice_green" %>
-    </div>
-   </div>
-  </div>
+
+<%= render "recipes/form" %>

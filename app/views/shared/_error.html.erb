@@ -1,0 +1,21 @@
+<% if obj.errors.any? %>  <!-- "obj" passed in from _form.html.erb, now all @recipe becomes obj  -->
+ <div class="row">
+  <div class="col-md-8 col-md-offset-2">
+   <div class="panel panel-danger">
+    <div class="panel-heading">
+    <h2 class="panel-title">
+      <%= pluralize(obj.errors.count, "error") %> prohibited this <%= obj.class %> from being saved: <!-- Solution from recipes_test_rb 46 -->
+     <!-- <pluralize(@recipe.errors.count, "error") %> prohibited this < @recipe.class %> from being saved:  Formaly the code before @recipe was replaced by obj-->
+     </h2>
+      <div class="panel-body">
+       <ul>
+        <% obj.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+      <% end %>
+     </ul>
+    </div>
+    </div>
+   </div>
+  </div>
+ </div>
+<% end %>
