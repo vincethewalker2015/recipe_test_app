@@ -1,5 +1,4 @@
-<%= render "shared/error", obj: @recipe %>  <!-- obj: @recipe this passes in this instance variable into the partial. If you want to run this in chefs - obj: @chef  -->
-
+<%= render 'shared/error', obj: @recipe %>
 <div class="row">
    <div class="col-md-12">
     <%= form_for(@recipe, :html => {class: "form-horizontal", role: "form"}) do |f| %> <!-- This is how you add bootstrap class in ruby code -->
