@@ -41,7 +41,8 @@
      
      <div class="form-group">
        <div class="col-md-offset-2 col-md-10 ">
-         <%= f.submit "Create your account",  class: "btn btn-primary btn-lg nice_green" %>
+         <%= f.submit(@chef.new_record? ? "Create your account" : "Update my account",  
+                       class: "btn btn-primary btn-lg nice_green" ) %>
          <!--<%= link_to "All Recipes", recipes_path, class: "btn btn-primary btn-lg nice_green" %> -->
        </div>
      </div>

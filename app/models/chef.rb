@@ -8,5 +8,5 @@ class Chef < ApplicationRecord
                     
   has_many :recipes # Use the plural as a chef has MANY recipes
   has_secure_password
-  validates :password, presence: true, length: { minimum: 5 }
+  validates :password, presence: true, length: { minimum: 5 }, allow_nil: true #ref test/chefs_edit_test line 16
 end
