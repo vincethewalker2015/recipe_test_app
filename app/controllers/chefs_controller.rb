@@ -19,6 +19,8 @@ class ChefsController < ApplicationController
   end
   
   
+  
+  
   private
   
   def chef_params
