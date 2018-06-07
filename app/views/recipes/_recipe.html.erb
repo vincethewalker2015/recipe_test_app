@@ -5,7 +5,7 @@
         <%= gravatar_for(recipe.chef, size: 120) %> <!-- use the |recipe| to access the chef details for a=vatar here -->
       </section>
     </div>
-    <div class= "col-md-8 well">
+    <div class= "col-md-8 well <%= cycle('profile-green', '') %>">
       <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
       <p><%= truncate(recipe.description, length: 150) %></p>
       <p><span class="quiet"><small>Created <%= time_ago_in_words(recipe.created_at) %> ago</small></p></span>
