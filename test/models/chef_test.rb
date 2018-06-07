@@ -71,5 +71,13 @@ class ChefTest < ActiveSupport::TestCase
     assert_not @chef.valid?
   end
   
+  # *BELOW* deleting a chef and associated recipes
   
+  test "associated recipes should be destroyed" do
+    @chef.save
+    @chef.recipes.create!(name: "testing destroy", description: "testing destroy function")
+    assert_difference 'Recipe.count', -1 do
+      @chef.destroy # Go to Models add "dependent: :destroy" after has_many :recipes
+    end
+  end
 end

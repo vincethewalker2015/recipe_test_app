@@ -6,7 +6,7 @@ class Chef < ApplicationRecord
                     format: {with: VALID_EMAIL_REGEX},
                     uniqueness: { case_sensitive: false }  #from chef_test 49
                     
-  has_many :recipes # Use the plural as a chef has MANY recipes
+  has_many :recipes, dependent: :destroy # Use the plural as a chef has MANY recipes
   has_secure_password
   validates :password, presence: true, length: { minimum: 5 }, allow_nil: true #ref test/chefs_edit_test line 16
 end
