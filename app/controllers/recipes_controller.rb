@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
       flash[:success] = "Recipe was created sucessfully"
       redirect_to recipe_path(@recipe)
     else
-      flash[:danger] = "Oops!! Something didn't go quite right here... Lets try that again!"
+      flash.now[:danger] = "Oops!! Something didn't go quite right here... Lets try that again!"
       render "new"
     end
   end
@@ -36,7 +36,7 @@ class RecipesController < ApplicationController
       flash[:success] = "Update was sucessfull"
       redirect_to recipe_path(@recipe)
     else
-      flash[:danger] = "Oops!! Something didn't go quite right here... Lets try that again!"
+      flash.now[:danger] = "Oops!! Something didn't go quite right here... Lets try that again!"
       render 'edit'
     end
   end

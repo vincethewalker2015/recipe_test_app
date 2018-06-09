@@ -15,6 +15,7 @@ class ChefsController < ApplicationController
       flash[:success] = "Hi #{@chef.chefname} You are now a Chef.."
       redirect_to chef_path(@chef)
     else
+      flash[:danger] = "That didn't quite work, Try again.."
       render 'new'
     end
   end
@@ -34,6 +35,7 @@ class ChefsController < ApplicationController
       flash[:success] = "Your details have been updated.."
       redirect_to chef_path(@chef)
     else
+      flash.now[:danger] = "Oops! Try that again.."
       render 'edit'
     end
   end
