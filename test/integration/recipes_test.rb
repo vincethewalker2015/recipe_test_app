@@ -25,6 +25,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
   end
   
   test "Should get to recipes show" do # tests for the show page, Routes and controller action
+    sign_in_as(@chef, "password") #from test_helper
     get recipe_path(@recipe)
     assert_template 'recipes/show'
     assert_match @recipe.name, response.body
@@ -36,7 +37,8 @@ class RecipesTest < ActionDispatch::IntegrationTest
   end
   
   test "Create a new valid recipe" do  # 34, 47 test for New recipe
-    get new_recipe_path
+    sign_in_as(@chef, "password") #from test helper
+    get new_recipe_path #This will show an error once login and session controllers are created - refer to app/test/test_helper.rb @sign_in_as
     assert_template "recipes/new"
     name_of_recipe = "Chicken saute"
     description_of_recipe = "great chicken dish"
@@ -49,6 +51,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
   end
   
   test "Reject invalid recipe submissions" do
+    sign_in_as(@chef, "password")
     get new_recipe_path
     assert_template "recipes/new"
     assert_no_difference "Recipe.count" do

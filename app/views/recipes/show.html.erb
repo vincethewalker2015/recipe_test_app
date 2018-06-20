@@ -1,4 +1,5 @@
 <%= render "shared/page_title", title: @recipe.name %>
+
 <div class= "well col-md-8 col-md-offset-2">
   <h4 class= "description center"><strong>Steps: </strong></h4>
   <hr />
@@ -6,23 +7,24 @@
   <br />
  
   <div class="pull-right">
-    <p class="center">
-     <em> Created by:</em>
-    </p>
-    <p class="center">
-      <%= link_to gravatar_for(@recipe.chef), recipes_path %>
-    </p>
-    <p class ="center">
-      <small><%= @recipe.chef.chefname.capitalize %></small>
-      <div class="pull-right"><%= time_ago_in_words(@recipe.created_at) %> ago</div>
-    </p>
+      <p class="center">
+       <em> Created by:</em>
+      </p>
+      <p class="center">
+        <%= link_to gravatar_for(@recipe.chef), recipes_path %>
+      </p>
+      <p class ="center">
+        <small><%= @recipe.chef.chefname.capitalize %></small>
+        <div class="pull-right"><%= time_ago_in_words(@recipe.created_at) %> ago</div>
+      </p>
   </div>
   <div class="recipe-actions">
-  <p><%= link_to "Edit This Recipe", edit_recipe_path(@recipe), class: "btn btn-sm btn-warning nice_green"%>
-     <%= link_to "All Recipes", recipes_path, class: "btn btn-sm btn-warning nice_green"%>
-     <%= link_to "Delete This Recipe", recipe_path(@recipe), method: :delete, 
+    <% if logged_in? && current_chef == @recipe.chef %>
+        <%= link_to "Edit This Recipe", edit_recipe_path(@recipe), class: "btn btn-sm btn-warning nice_green"%>
+        <%= link_to "Delete This Recipe", recipe_path(@recipe), method: :delete, 
                                                              data: {confirm: "Are you sure??"},  
-                                                             class: "btn btn-sm btn-danger"%></p>
- </div>
- 
+                                                             class: "btn btn-sm btn-danger"%>
+        <%= link_to "All Recipes", recipes_path, class: "btn btn-sm btn-warning nice_green"%>
+   </div>
+   <% end %>
 </div>

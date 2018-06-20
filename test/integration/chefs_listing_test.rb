@@ -21,8 +21,8 @@ class ChefsListingTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", chef_path(@chef2), text: @chef2.chefname.capitalize
   end
   
-  test "Sucessfully delete a chef" do
-    get chefs_path(@chef)
+  test "Should delete chef" do
+    get chefs_path
     assert_template "chefs/index"
     assert_difference "Chef.count", -1 do
       delete chef_path(@chef2)

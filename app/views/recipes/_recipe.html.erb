@@ -7,8 +7,16 @@
     </div>
     <div class= "col-md-8 well <%= cycle('profile-green', '') %>">
       <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
-      <p><%= truncate(recipe.description, length: 150) %></p>
-      <p><span class="quiet"><small>Created <%= time_ago_in_words(recipe.created_at) %> ago</small></p></span>
+        <p><%= truncate(recipe.description, length: 150) %></p>
+          <p><span class="quiet"><small>Created <%= time_ago_in_words(recipe.created_at) %> ago</small></span>
+        </p>
+          <% if logged_in? && current_chef == recipe.chef %>
+            <%= link_to "Edit This Recipe", edit_recipe_path(recipe), class: "btn btn-sm btn-warning nice_green white_font"%>
+            <%= link_to "Delete This Recipe", recipe_path(recipe), method: :delete, 
+                                                             data: {confirm: "Are you sure??"},  
+                                                             class: "btn btn-sm btn-danger white_font"%>
+        <% end %>
+        
     </div>
   </div>  
 <% end %>
