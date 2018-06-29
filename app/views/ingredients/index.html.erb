@@ -1,0 +1,23 @@
+<%= render "shared/page_title", title: "Ingredients".capitalize %>
+
+<div align="center">
+  <%= will_paginate %>
+</div>
+<div align="center">
+  <% @ingredients.each do |ing| %>
+    <ul class="listing">
+      <div class="row">
+        <div class="well col-sm-6 col-sm-offset-3 <%= cycle('profile-green', '') %>">
+          <li class="chef-title"><%= link_to ing.name.capitalize, ingredient_path(ing) %></li>
+          <li><small>Added to <%= pluralize(ing.recipes.count, "recipe")if ing.recipes  %></small></li>
+          <% if logged_in? && current_chef.admin? && %>
+            <li><%= link_to "Edit This Ingredient", edit_ingredient_path(ing) %></li>
+          <% end %>
+        </div>
+      </div>  
+    </ul>
+  <% end %>
+</div>
+<div align="center">
+  <%= will_paginate %>
+</div>

@@ -56,7 +56,8 @@ class RecipesController < ApplicationController
     end
   
     def recipe_params
-      params.require(:recipe).permit(:name, :description)
+      #params.require(:recipe).permit(:name, :description) See action below if you want to select ingredients in form as well..
+      params.require(:recipe).permit(:name, :description, ingredient_ids: [])
     end
     
     def require_same_user 

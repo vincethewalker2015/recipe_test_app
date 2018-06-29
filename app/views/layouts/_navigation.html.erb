@@ -17,15 +17,21 @@
       <ul class="nav navbar-nav">
           <li><%= link_to "Chefs", chefs_path %></li>
           <li><%= link_to "All Recipes", recipes_path  %></li>
+          <li><%= link_to "Ingredients", ingredients_path %></li>
         <% if logged_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to "Create New Recipe", new_recipe_path  %></li>
-              <li><a href="#">Another action</a></li>
+              <% if current_chef.admin? %>
+                <li><%= link_to "Add a New Ingredient", new_ingredient_path %></li>
+              <% end %>
               <li><a href="#">Something else here</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
+              <li><%= link_to "Avaliable Ingredients:" %></li>
+              <% Ingredient.all.each do |ingredient| %>
+                 <li><%= link_to ingredient.name.capitalize, ingredient_path(ingredient) %></li>
+              <% end %>
               <li role="separator" class="divider"></li>
               <li><a href="#">One more separated link</a></li>
             </ul>

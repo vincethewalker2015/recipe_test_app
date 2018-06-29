@@ -45,6 +45,8 @@ $navbar-default-bg: #073B15;
   height: 400px;
 }
 
+
+
 .jumbotron h1 {
   color: #fff;
   text-align: center;
@@ -61,11 +63,48 @@ $navbar-default-bg: #073B15;
   font-weight: bold;
 }
 
+ 
+
 /* Home Page */
 .bold-text {
   font-weight: bold;
 }
 
+/* Home page sub pages */
+
+.jumbotron-avo {
+  background-image: asset-url("avo.png");
+  background-size: cover;
+  border-radius: 5px;
+  height: 400px;
+  color: #fff;
+}
+
+.jumbotron-healthy {
+  background-image: asset-url("healthy.png");
+  background-size: cover;
+  border-radius: 5px;
+  height: 400px;
+  color: #fff;
+}
+
+.jumbotron-chad {
+  background-image: asset-url("boule.png");
+  background-size: cover;
+  border-radius: 5px;
+  height: 500px;
+  color: #fff;
+}
+
+.pages-text {
+  font-family: "Garamond", sans-serif;
+  font-size: 18px;
+  
+}
+.textie {
+  font-weight: bold;
+  padding: 90px;
+}
 /* Buttons */
 .nice_green {
   background-color : #073B15;
@@ -79,13 +118,48 @@ $navbar-default-bg: #073B15;
   text-decoration: none;
 }
 
-/* On Show Page */
+/* Opposite of nice_green */
+.nice_green_inverse {
+  background-color : #ADBB26 ;
+  border-color: #ADBB26 ;
+}
+
+
+.nice_green_inverse:hover {
+  background-color: #073B15;
+  border-color: #073B15;
+  text-decoration: none;
+}
+
+/* On Recipe/Show Page */
 
 .recipe-actions {
   padding-top: 5px;
   a {
     color: #fff !important;
   }
+}
+
+/* On recipe / new page */
+
+.input_checkbox input {
+  width: auto !important;
+}
+  
+  
+
+/* on Ingredient show page */
+.hither-green {
+  color: #ADBB26;
+}
+/* on Ingredient show page from ingredient partial in recipes..*/
+.addIngred a {
+  text-decoration: none;
+}
+
+/* Ingredient edit page */
+.apple_green {
+  color: #073B15;
 }
 
 /* in the _recipe partial */
@@ -104,8 +178,9 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #073B15;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+ 
 }
 
 
@@ -115,6 +190,7 @@ footer a {
 
 footer a:hover {
   color: #073B15;
+  text-decoration: none;
 }
 
 footer small {

@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   
   get '/signup', to: 'chefs#new'
   resources :chefs, except: [:new]
-  
+  resources :ingredients, except: [:destroy]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  
+  get 'pages/top', to: 'pages#top'
+  get 'pages/middle', to: 'pages#middle'
+  get 'pages/bottom', to: 'pages#bottom'
   
 end

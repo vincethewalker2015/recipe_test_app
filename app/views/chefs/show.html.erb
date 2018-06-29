@@ -5,17 +5,23 @@
     <%= gravatar_for @chef, size: 150 %>
   </div>
 </div>
-<div align="center">
+<% if @chef.recipes.count != 0 %>
+  <div align="center">
     <%= will_paginate @chef_recipes %>
-</div>
+  </div>
+  
+  <h4 align="center"><%= @chef.chefname %> 's <%= @chef.recipes.count %> recipes</h4>
+  
+  <%= render "recipes/recipe", obj: @chef_recipes %> <!-- Use 2nd instance variable @chef_recipes from chef controller show -->
+  
+  <div align="center">
+      <%= will_paginate @chef_recipes %>
+  </div> 
 
-<h4 align="center"><%= @chef.chefname %> 's recipes</h4>
+<% else %>
+  <h4 align="center"><%= @chef.chefname %>! you don't seem to have any recipes :(</h4>
 
-<%= render "recipes/recipe", obj: @chef_recipes %> <!-- Use 2nd instance variable @chef_recipes from chef controller show -->
-
-<div align="center">
-    <%= will_paginate @chef_recipes %>
-</div> 
+<% end %>
 
 
 
