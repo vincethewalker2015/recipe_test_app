@@ -30,3 +30,24 @@
         <%= link_to "All Recipes", recipes_path, class: "btn btn-sm btn-warning nice_green"%>
    </div>
 </div>
+
+<% if logged_in? %>
+  <%= render 'comments/newcomment' %>
+<% end %>
+
+<% if @recipe.comments.count > 0 %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h4>Comments: <%= @recipe.comments.count %></h4>
+        <div id="messages">
+          <%= render partial: 'comments/comments', object: @comments %>
+        </div>
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h4>No Comments Yet..</h4>
+    </div>
+  </div>
+<% end %>
