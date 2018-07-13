@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #get 'recipes/:id', to: 'recipes#show'
   
   resources :recipes do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
   
   get '/signup', to: 'chefs#new'
@@ -19,5 +19,7 @@ Rails.application.routes.draw do
   get 'pages/top', to: 'pages#top'
   get 'pages/middle', to: 'pages#middle'
   get 'pages/bottom', to: 'pages#bottom'
+  
+  mount ActionCable.server => '/cable'
   
 end

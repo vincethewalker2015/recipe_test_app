@@ -17,6 +17,7 @@ class ChefsController < ApplicationController
     @chef = Chef.new(chef_params)
     if @chef.save
       session[:chef_id] = @chef.id #This Logs the chef in once the account is created
+      cookies.signed[:chef_id] = @chef.id #added here for use with actioncable
       flash[:success] = "Hi #{@chef.chefname} You are now a Chef.."
       redirect_to chef_path(@chef)
     else
