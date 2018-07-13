@@ -61,7 +61,7 @@ group :production do
   # Use Postgres for production (Heroku)
   gem 'pg'
   # Use reddis for ActionCable function in Heroku
-  gem 'redis'
+  gem 'redis', ' ~> 3.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
