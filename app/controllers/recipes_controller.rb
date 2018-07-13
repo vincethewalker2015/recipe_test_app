@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.chef = current_chef
     if @recipe.save
-      flash[:success] = "Recipe was created sucessfully"
+      session[:chef_id] = chef.id flash[:success] = "Recipe was created sucessfully"
       redirect_to recipe_path(@recipe)
     else
       flash.now[:danger] = "Oops!! Something didn't go quite right here... Lets try that again!"

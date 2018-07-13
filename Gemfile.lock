@@ -125,6 +125,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redis (4.0.1)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -186,6 +187,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.7)
   rails-controller-testing
+  redis
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
@@ -197,4 +199,4 @@ DEPENDENCIES
   will_paginate (= 3.1.0)
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
