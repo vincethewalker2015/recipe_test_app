@@ -1,0 +1,10 @@
+<div class="message well well-sm <%= cycle('profile-green', '') %>">
+  <p>
+    <small><em>Created <%= time_ago_in_words(message.created_at) %> ago by: </em></small><br />
+    <%= gravatar_for(message.chef, size: 50) %>
+    <strong><%= message.chef.chefname.capitalize %>: </strong>
+    <span class="content">
+      <%= message.content %>
+    </span>
+  </p>
+</div>

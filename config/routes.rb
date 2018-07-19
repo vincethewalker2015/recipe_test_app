@@ -21,5 +21,8 @@ Rails.application.routes.draw do
   get 'pages/bottom', to: 'pages#bottom'
   
   mount ActionCable.server => '/cable'
+  get '/chat', to: 'chatrooms#show'
+  
+  resources :messages, only: [:create]
   
 end

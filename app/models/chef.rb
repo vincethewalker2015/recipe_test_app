@@ -8,6 +8,7 @@ class Chef < ApplicationRecord
                     
   has_many :recipes, dependent: :destroy # Use the plural as a chef has MANY recipes
   has_many :comments, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_secure_password
   validates :password, presence: true, length: { minimum: 5 }, allow_nil: true #ref test/chefs_edit_test line 16
 end
