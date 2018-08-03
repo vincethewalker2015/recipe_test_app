@@ -66,7 +66,7 @@ group :production do
   # Use reddis for ActionCable function in Heroku
   gem 'redis', ' ~> 3.3'
   # Use fog for image storage
-  gem 'fog', '1.42'
+  gem 'fog-aws'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
