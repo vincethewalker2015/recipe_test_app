@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
-  before_action :require_user, except: [:index, :show]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :like]
+  before_action :require_user, except: [:index, :show, :like]
+  before_action :require_user_like, only: [:like]
   before_action :require_same_user, only: [:edit, :update, :destroy]
   
   
@@ -51,6 +52,17 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
   
+  def like
+    like = Like.create(like: params[:like], chef: current_chef, recipe: @recipe)
+    if like.valid?
+      flash[:success] = "You have 'liked' it"
+      redirect_to :back
+    else
+      flash[:danger] = "You can only like/dislike a recipe once"
+      redirect_to :back
+    end
+  end
+  
   private
   
     def set_recipe
@@ -60,6 +72,13 @@ class RecipesController < ApplicationController
     def recipe_params
       #params.require(:recipe).permit(:name, :description) See action below if you want to select ingredients in form as well..
       params.require(:recipe).permit(:name, :description, :picture, ingredient_ids: [])
+    end
+    
+    def require_user_like
+      if !logged_in?
+        flash[:danger] = "You must be logged in to perform that action"
+        redirect_to :back
+      end
     end
     
     def require_same_user 

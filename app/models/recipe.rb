@@ -7,6 +7,7 @@ class Recipe < ApplicationRecord
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   default_scope -> { order(updated_at: :desc) }  #this arranges the order of the recipess from most recent down
   
   # Validates the size of an uploaded picture
@@ -15,5 +16,14 @@ class Recipe < ApplicationRecord
       errors.add(:picture, "Should be less than 5MB!")
     end
   end
+  
+  def thumbs_up_total
+    self.likes.where(like: true).size
+  end
+
+  def thumbs_down_total
+    self.likes.where(like: false).size    
+  end
+  
   
 end

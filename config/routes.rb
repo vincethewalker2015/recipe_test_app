@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   
   resources :recipes do
     resources :comments, only: [:create, :destroy]
+    member do
+      post 'like'
+    end
   end
   
   get '/signup', to: 'chefs#new'
