@@ -5,7 +5,9 @@
   <hr />
     <%= simple_format(@recipe.description) %>
   <br />
-    <%= image_tag @recipe.picture.url if @recipe.picture? %>
+    <div class="yummy">
+      <%= image_tag @recipe.picture.url if @recipe.picture? %>
+    </div>
   <% if @recipe.ingredients.any? %>
     <p><strong>Ingredients:</strong> <%= render @recipe.ingredients %></p>
   <% end %>
